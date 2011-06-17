@@ -2,22 +2,28 @@ steal.plugins(
     'jquery/controller',
     'jquery/view/ejs').then(function($){
 
-    $.Controller('Ipark.Calendar.Month',{
-
+    $.Controller('Ipark.Calendar.Month',
+    {
+        defaults :  {
+            month : "current"
+        }
+    },
+    {
         // sets up the widget
         init : function(){
-            Ipark.Models.Day.findAll({}, this.callback('build_days'));
+            Ipark.Models.Day.findAll({month: this.options.month}, this.callback('build_days'));
         },
 
         /**
-         * @param {Array} days An array of Ipark.Models.Day objects.
-         */
+     * @param {Array} days An array of Ipark.Models.Day objects.
+     */
         build_days: function( days ){
-            this.find('.days').html('//calendar/calendar_month/views/days.ejs', {
+
+            this.find('div.days').html('//calendar/calendar_month/views/days.ejs', {
                 days:days
             });
             this.find('.day').addClass('ui-state-default');
-            this.find('.days').ipark_calendar_events();
+            this.find('div.days').ipark_calendar_events();
         },
 
         '.day .header mouseover': function(element, event){

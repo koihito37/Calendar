@@ -6,17 +6,27 @@ $.Model('Ipark.Models.Day',{
          * @param {Function} error a callback function for an error in the ajax request.
          */
     findAll: function( params, success, error ){
+        this.calculateDaysOfMonth();
+        var fixture = '//calendar/fixtures/days_'+params.month+'.json.get';
         $.ajax({
             url: '/events',
             type: 'get',
             dataType: 'json',
-            data: params,
+            data: {},
             success: this.callback(['wrapMany',success]),
             error: error,
-            fixture: "//calendar/fixtures/days.json.get" //calculates the fixture path from the url and type.
+            fixture: fixture //calculates the fixture path from the url and type.
         });
+    },
+
+    calculateDaysOfMonth: function() {
+        var calendar = $.calendars.instance();
+        console.log(calendar);
+        console.log(calendar.today());
     }
 },{
+
+
     getDate: function() {
         var tmp = this.id + "";
         var year = tmp.substr(0,4);

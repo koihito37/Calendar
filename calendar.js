@@ -8,9 +8,15 @@ steal.css('calendar')
         'jquery/lang/json',
         'calendar/calendar_month',
         'calendar/calendar_events',
-        'calendar/calendar_sidebar')
+        'calendar/calendar_sidebar',
+        'calendar/calendar_navi'
+        )
     .models('day', 'calendar_event')
     .then(function($) {
-        $(".content").ipark_calendar_month();
-        $(".sidebar").ipark_calendar_sidebar();
+        steal('//jquery.calendars/jquery.calendars.all.js')
+        .then(function($) {
+            $("td.content").ipark_calendar_month();
+            $(".sidebar").ipark_calendar_sidebar();
+            $(".nav-actions").ipark_calendar_navi();
+        })
     });
