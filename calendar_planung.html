@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <title>calendar</title>
+    </head>
+    <body>
+        <div id="calendar">
+            <table id="calendar_topnavi">
+                <tr>
+                    <td id="sidebar_navi">
+
+                    </td>
+                    <td id="calendar_navi">
+                        <div id="main_navi">
+
+                        </div>
+                        <div id="sub_navi">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table id="calendar_maintable">
+                <tbody>
+                    <tr>
+                        <td id="sidebar_cell">
+
+                        </td>
+                        <td id="calendar_main_cell">
+                            <div id="calendar_container">
+                                <table id="weekdays">
+                                    <tbody>
+                                        <tr>
+                                            <!-- ein TH pro Tag -->
+                                        </tr>
+                                </table>
+                                <div id="event_container">
+                                    <!-- eine Table pro Zeile -->
+                                    <table class="month_row">
+                                        <!-- erste Zeile sind Tagesinfos (Datum)-->
+                                        <tr>
+                                            <!-- ein TH pro Tag -->
+                                        </tr>
+                                        <!-- eine Zeile pro erlaubter Zeile (z.b. 6)-->
+                                        <tr>
+                                            <!-- ein TD pro Tag -->
+                                            <!-- eine TD kann nur ein Event aufnehmen -->
+                                            <td>
+                                                <!-- ein event hat eine eindeutige id  -->
+                                                <!-- ein event hat eine Klasse, die den Typ beschreibt  -->
+                                                <div id="slot_32" class="calendar_event slot_event">
+                                                    Tolles Event
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type='text/javascript'
+                src='../steal/steal.js?calendar,development'>
+        </script>
+    </body>
+</html>

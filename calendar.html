@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>calendar</title>
+    </head>
+    <body>
+        <div id="calendar">
+            <table id="calendar_topnavi">
+                <tr>
+                    <td id="sidebar_navi">
+
+                    </td>
+                    <td id="calendar_navi">
+                        <div id="main_navi">
+
+                        </div>
+                        <div id="sub_navi">
+
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <table id="calendar_maintable">
+                <tbody>
+                    <tr>
+                        <td id="sidebar_cell">
+                            <div id="toggle_event_visibility">
+                                <span class="toggle_event_visibility" id="toggle_slot">Slots</span><br />
+                                <span class="toggle_event_visibility" id="toggle_tour">Touren</span><br />
+                                <span class="toggle_event_visibility" id="toggle_assignment">Einsätze</span>
+                            </div>
+                            <div id="day_actions">
+                                Ausgewählte Tage:
+                                <ul id="selected_days"></ul>
+                            </div>
+                        </td>
+                        <td id="calendar_main_cell">
+                            <div id="calendar_container">
+                                <table id="weekdays">
+                                    <tbody>
+                                        <tr>
+                                            <th>Montag</th>
+                                            <th>Dienstag</th>
+                                            <th>Mittwoch</th>
+                                            <th>Donnerstag</th>
+                                            <th>Freitag</th>
+                                            <th>Samstag</th>
+                                            <th>Sonntag</th>
+                                        </tr>
+                                </table>
+                                <div id="event_container">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script type='text/javascript'
+                src='../steal/steal.js?calendar,development'>
+        </script>
+    </body>
+</html>

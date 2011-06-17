@@ -1,0 +1,10 @@
+[
+	{"name": "Event 1", "date": "20110530", "type": "slot", "id": 1},
+	{"name": "Event 2", "date": "20110602", "type": "tour",  "id": 2},
+	{"name": "Event 3", "date": "20110602", "type": "assignment",  "id": 3},
+	{"name": "Event 4", "date": "20110604", "type": "assignment",  "id": 4},
+	{"name": "Event 5", "date": "20110613", "type": "tour",  "id": 5},
+	{"name": "Event 6", "date": "20110614", "type": "slot",  "id": 6},
+	{"name": "Event 7", "date": "20110620", "type": "slot",  "id": 7},
+	{"name": "Event 8", "date": "20110702", "type": "slot",  "id": 8}
+]

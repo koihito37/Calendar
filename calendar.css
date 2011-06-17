@@ -1,0 +1,41 @@
+body {
+	font-family: verdana;
+	padding: 0px; margin: 0px;
+}
+
+#calendar_maintable {
+    border-width:1px;
+    border-style:solid;
+    border-color:blue;
+    text-align:justify;
+}
+
+.event {
+    border-width:1px;
+    border-style:solid;
+    border-color:green;
+    text-align:justify;
+    padding: 1em;
+}
+
+th, td {
+    border-width:1px;
+    border-style:solid;
+}
+
+td {
+    height: 150px;
+    width: 150px;
+}
+
+span.active {
+    font-weight: bold;
+}
+
+.day {
+    background-color: white;
+}
+
+.day.selected {
+    background-color: yellow;
+}

@@ -1,0 +1,19 @@
+
+<%for(var table_count = 0; table_count < (days.length / 7) ; table_count++){%>
+    <% day_index = (table_count*7)+column_count%>
+    <table class="month_row">
+        <tr>
+            <%for(var column_count = 0; column_count < 7 ; column_count++){%>
+                <th id="<%= days[(table_count*7)+column_count].id%>" class="day_header" rel="<%= days[(table_count*7)+column_count].getDate() %>">
+                    <%= days[(table_count*7)+column_count].getDate() %>
+                </th>
+            <%}%>
+        </tr>
+        <tr>
+            <%for(var column_count = 0; column_count < 7 ; column_count++){%>
+                <td <%= days[(table_count*7)+column_count]%> >
+                </td>
+            <%}%>
+        </tr>
+    </table>
+<%}%>

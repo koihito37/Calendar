@@ -1,0 +1,13 @@
+<%for(var table_count = 0; table_count < (days.length / 7) ; table_count++){%>
+    <table class="month_row">
+        <%for(var row_count = 1; row_count <= 6 ; row_count++){%>
+            <tr>
+                <%for(var column_count = 1; column_count <= 7 ; column_count++){%>
+                    <td <%= days[(table_count*7)+column_count]%> >
+                        <%= (table_count*7)+column_count %>
+                    </td>
+                <%}%>
+            </tr>
+        <%}%>
+    </table>
+<%}%>
