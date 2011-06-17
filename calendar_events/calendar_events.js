@@ -22,7 +22,7 @@ $.Controller('Ipark.Calendar.Events',{
     allocate: function( events ){
         var self = this;
         $.each(events, function(index, event) {
-            self.find('.ipark_models_day_'+event.date).append('//calendar/calendar_events/views/event.ejs', {
+            self.find('.ipark_models_day_'+event.date).children('.content').append('//calendar/calendar_events/views/event.ejs', {
                 event:event
             });
         });

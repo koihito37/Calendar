@@ -1,6 +1,6 @@
 <table class="month_table">
-    <% var day_index = 0 %>
-    <%for(var row_count = 1; row_count <= (days.length / 7) ; row_count++){%>
+    <% var day_index = 0; %>
+    <%for(var row_count = 1; row_count <= (days.length / 7) ; table_count++){%>
         <tr>
             <%for(var column_count = 1; column_count <= 7 ; column_count++){%>
                 <td <%= days[day_index]%> rel="<%= days[day_index].getDate()%>">

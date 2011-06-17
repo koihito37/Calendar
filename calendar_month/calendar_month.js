@@ -1,18 +1,7 @@
 steal.plugins(
     'jquery/controller',
     'jquery/view/ejs').then(function($){
-    /**
-         * A Todos widget created like
-         *
-         *    $("#todos").todos({ list: new Todo.List() });
-         *
-         * It listens on changes to the list and items in the list with the following actions:
-         *
-         *   - "{list} add"    - todos being added to the list
-         *   - "{list} remove" - todos being removed from the list
-         *   - "{list} update" - todos being updated in the list
-         *
-         */
+
     $.Controller('Ipark.Calendar.Month',{
 
         // sets up the widget
@@ -21,8 +10,8 @@ steal.plugins(
         },
 
         /**
-             * @param {Array} days An array of Ipark.Models.Day objects.
-             */
+         * @param {Array} days An array of Ipark.Models.Day objects.
+         */
         build_days: function( days ){
             this.find('#event_container').html('//calendar/calendar_month/views/days.ejs', {
                 days:days
@@ -30,14 +19,14 @@ steal.plugins(
             this.find('#event_container').ipark_calendar_events();
         },
 
-        '.day_header click': function(element, event) {
-            var to_toggle = $('.ipark_models_day_'+element.attr('id'));
+        '.header click': function(element, event) {
+            var parent = element.parent();
             var trigger_event = 'add';
-            if(to_toggle.hasClass('selected')) {
+            if(parent.hasClass('selected')) {
                 trigger_event = 'remove';
             }
-            $('#selected_days').trigger(trigger_event, {'id': element.attr('id'), 'rel': element.attr('rel')});
-            $('.ipark_models_day_'+element.attr('id')).toggleClass('selected');
+            $('#selected_days').trigger(trigger_event, {'id': parent.attr('id'), 'rel': parent.attr('rel')});
+            parent.toggleClass('selected');
         }
     });
 });
