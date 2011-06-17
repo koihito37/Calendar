@@ -1,5 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
 .calendar .container{
     width: 1000px;
+}
+
+.sidebar{
+    border: 1px solid #ccc;
+    background: #f4f5f6;
+}
+
+.sidebar .info{
+    width: 140px;
+    font-size: 14px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+.nav-first{
+    padding: 5px 0px;
+    background: #eee;
+    border: 1px solid #ccc;
+}
+
+.nav-first .today{
+    margin-left: 25px;
 }
 
 .data .sidebar{
@@ -33,7 +60,14 @@
     background: #eee;
 }
 
+.selected-days{
+    list-style-type: none;
+}
+
 .selected-days li{
+    background: #b2cccc;
+    padding: 3px;
+    margin: 3px;
 }
 
 .weekdays,
@@ -45,9 +79,13 @@
 .weekdays th{
     width: 14.285714286%;
     background-color: #eee;
+}
+
+.weekdays th div{
     font-size: 12px;
     font-weight: normal;
     padding: 5px 0px;
+    border: 1px solid #ccc;
 }
 
 .week{
@@ -101,13 +139,13 @@
 
 .day .content .slot, .toggle-visibility .slot.active{background: #e5b0e5;}
 .day .content .tour, .toggle-visibility .tour.active{background: #9ccccc;}
-.day .content .assignment, .toggle-visibility .assignment.active{background: #a0cca0;}
+.day .content .assignment, .toggle-visibility .assignment.active{background: #7fd280;}
 
 .day .content .event:hover{font-weight: bold; color: #333}
 
 .day .content .slot:hover, .toggle-visibility .slot{background: #e5cde5;}
 .day .content .tour:hover, .toggle-visibility .tour{background: #b2cccc;}
-.day .content .assignment:hover, .toggle-visibility .assignment{background: #7fd280;}
+.day .content .assignment:hover, .toggle-visibility .assignment{background: #a0cca0;}
 
 .event{
     padding: 2px;
@@ -119,6 +157,8 @@
 .ui-state-active,
 .ui-state-hover{
     border-color: #1C94C4;
+    background-image: none;
+    background-color:  transparent;
 }
 
 .day .ui-state-hover{

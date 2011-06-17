@@ -17,6 +17,6 @@ steal.css('calendar')
         .then(function($) {
             $("td.content").ipark_calendar_month();
             $(".sidebar").ipark_calendar_sidebar();
-            $(".nav-actions").ipark_calendar_navi();
+            $(".navigation").ipark_calendar_navi();
         })
     });

@@ -8,21 +8,25 @@
     </head>
     <body>
         <div class="calendar">
-            <table class="nav-actions">
-                <tr>
-                    <td class="nav-first">
-                        <div class="today">Heute</div>
-                        <div class="last_month">Letzter Monat</div>
-                        <div class="next_month">Nächster Monat</div>
-                    </td>
-                    <td class="nav-second">
-                    </td>
-                </tr>
-            </table>
             <table class="data">
                 <tbody>
                     <tr>
+                        <td>&nbsp;</td>
+                        <td class="navigation">
+                            <div class="nav-first">
+                                <button class="today ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Heute</button>
+                                <button class="last_month ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">« Letzter Monat</button>
+                                <button class="next_month ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">Nächster Monat »</button>
+                            </div>
+                            <div class="nav-second">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="sidebar">
+                            <div class="info">
+                                Sichtbare Events:
+                            </div>
                             <div class="toggle-visibility">
                                 <div class="toggle_event_visibility slot">Slots</div>
                                 <div class="toggle_event_visibility tour">Touren</div>
@@ -38,13 +42,13 @@
                                 <table class="weekdays">
                                     <tbody>
                                         <tr>
-                                            <th>Montag</th>
-                                            <th>Dienstag</th>
-                                            <th>Mittwoch</th>
-                                            <th>Donnerstag</th>
-                                            <th>Freitag</th>
-                                            <th>Samstag</th>
-                                            <th>Sonntag</th>
+                                            <th><div>Montag</div></th>
+                                            <th><div>Dienstag</div></th>
+                                            <th><div>Mittwoch</div></th>
+                                            <th><div>Donnerstag</div></th>
+                                            <th><div>Freitag</div></th>
+                                            <th><div>Samstag</div></th>
+                                            <th><div>Sonntag</div></th>
                                         </tr>
                                 </table>
                                 <div class="days" id="event_container">
