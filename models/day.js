@@ -6,23 +6,47 @@ $.Model('Ipark.Models.Day',{
          * @param {Function} error a callback function for an error in the ajax request.
          */
     findAll: function( params, success, error ){
-        this.calculateDaysOfMonth();
-        var fixture = '//calendar/fixtures/days_'+params.month+'.json.get';
-        $.ajax({
-            url: '/events',
-            type: 'get',
-            dataType: 'json',
-            data: {},
-            success: this.callback(['wrapMany',success]),
-            error: error,
-            fixture: fixture //calculates the fixture path from the url and type.
-        });
+
+        success(this.models(this.calculateDaysOfMonth(params.baseDate)));
+        return;
     },
 
-    calculateDaysOfMonth: function() {
-        var calendar = $.calendars.instance();
-        console.log(calendar);
-        console.log(calendar.today());
+    calculateDaysOfMonth: function(baseDate) {
+        // hole den ersten des Monats und setze das start_date darauf
+        var startDate = baseDate.newDate(baseDate.year(), baseDate.month(), 1);
+
+        // nehme den letzten Tag des Monats und setze das end_date darauf
+        var endDate = baseDate.newDate(baseDate.year(), baseDate.month(), baseDate.daysInMonth());
+
+        // prüfe ob der erste ein Montag ist, wenn nicht gehe zum ersten
+        // und setze das startDate darauf
+        var day_of_week = startDate.dayOfWeek();
+        if(day_of_week != 1){
+            if(day_of_week == 0) {
+                day_of_week = 7;
+            }
+            startDate.add(-(day_of_week-1), 'd');
+        }
+
+        // prüfe, ob der letzte Tag ein Sonntag ist, wenn nicht gehe zum
+        // nächsten Sonntag und setze das endDate darauf
+        day_of_week = endDate.dayOfWeek();
+        if(day_of_week != 0){
+            endDate.add(7-day_of_week, 'd');
+        }
+
+        // durchlaufe vom startD zum endDate und erstelle ein array mit date objekten
+        var calculatedDate = startDate
+
+        var dates = [];
+        while(calculatedDate.compareTo(endDate) < 1) {
+            calculatedDate.id = calculatedDate.formatDate('yyyymmdd');
+            dates.push(calculatedDate);
+            calculatedDate = calculatedDate.newDate();
+            calculatedDate = calculatedDate.add(1, 'd');
+        }
+
+        return dates;
     }
 },{
 

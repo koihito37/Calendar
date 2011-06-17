@@ -5,25 +5,30 @@ steal.plugins(
     $.Controller('Ipark.Calendar.Month',
     {
         defaults :  {
-            month : "current"
+            add_month :  0
         }
     },
     {
         // sets up the widget
         init : function(){
-            Ipark.Models.Day.findAll({month: this.options.month}, this.callback('build_days'));
+            var baseDate = $.calendars.instance().newDate();
+            baseDate.add(this.options.add_month, 'm');
+            Ipark.Models.Day.findAll({baseDate: baseDate}, this.callback('build_days'));
         },
 
         /**
      * @param {Array} days An array of Ipark.Models.Day objects.
      */
         build_days: function( days ){
-
             this.find('div.days').html('//calendar/calendar_month/views/days.ejs', {
-                days:days
+                days:days, today:$.calendars.instance().newDate()
             });
             this.find('.day').addClass('ui-state-default');
             this.find('div.days').ipark_calendar_events();
+        },
+
+        getAddMonth: function() {
+            return this.options.add_month;
         },
 
         '.day .header mouseover': function(element, event){

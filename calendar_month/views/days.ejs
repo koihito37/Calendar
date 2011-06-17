@@ -3,11 +3,12 @@
     <%for(var row_count = 1; row_count <= (days.length / 7) ; row_count++){%>
         <tr class="week">
             <%for(var column_count = 1; column_count <= 7 ; column_count++){%>
-                <td <%= days[day_index]%> rel="<%= days[day_index].getDate()%>">
+                <% var class = ''; if(days[day_index].compareTo(today) == 0) class = 'class="today"' %>
+                <td <%= class %> <%= days[day_index]%> rel="<%= days[day_index].getDate()%>">
                     <div class="header">
                         <div class="misc">&nbsp;</div>
                         <div class="date">
-                            <%= days[day_index].getDate() %>
+                            <%= days[day_index].formatDate('dd.mm.') %>
                         </div>
                     </div>
                     <div class="content">
