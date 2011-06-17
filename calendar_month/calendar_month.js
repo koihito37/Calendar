@@ -20,6 +20,28 @@ steal.plugins(
             this.find('.days').ipark_calendar_events();
         },
 
+        '.day .header mouseover': function(element, event){
+            element.addClass('ui-state-hover');
+            element.closest('.day').addClass('ui-state-hover');
+            event.stopPropagation();
+        },
+
+        '.day .header mouseout': function(element, event){
+            element.removeClass('ui-state-hover');
+            element.closest('.day').removeClass('ui-state-hover');
+            event.stopPropagation();
+        },
+
+        '.day .content mouseover': function(element, event){
+            element.addClass('ui-state-hover');
+            event.stopPropagation();
+        },
+
+        '.day .content mouseout': function(element, event){
+            element.removeClass('ui-state-hover');
+            event.stopPropagation();
+        },
+
         '.header click': function(element, event) {
             var parent = element.parent();
             var trigger_event = 'add';

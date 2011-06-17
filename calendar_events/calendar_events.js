@@ -47,10 +47,12 @@ $.Controller('Ipark.Calendar.Events',{
 
     '.event mouseover': function(element, event){
         element.addClass('ui-state-hover');
+        event.stopPropagation();
     },
 
     '.event mouseout': function(element, event){
         element.removeClass('ui-state-hover');
+        event.stopPropagation();
     },
 
     /**

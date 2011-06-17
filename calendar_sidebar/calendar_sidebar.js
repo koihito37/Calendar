@@ -21,10 +21,22 @@ $.Controller('Ipark.Calendar.Sidebar',{
     },
 
     toggle_event_visibility: function( element ){
-        element = $(element);
+        var element = $(element);
+        var selector = null;
         // löse eine toggle event aus für alle events mit der Klasse, die
-        // aus der element id berechnet wird
-        $('.'+element.attr('id').substr(7)).trigger('toggle', [!element.hasClass('active')]);
+        // aus der element class stammt
+        if(element.hasClass('slot')){
+            selector = 'slot';
+        }
+        
+        if(element.hasClass('tour')){
+            selector = 'tour';
+        }
+
+        if(element.hasClass('assignment')){
+            selector = 'assignment';
+        }
+        $('.event.'+selector).trigger('toggle', [!element.hasClass('active')]);
         element.toggleClass('active');
     },
 

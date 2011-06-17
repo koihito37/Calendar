@@ -2,6 +2,40 @@
     width: 1000px;
 }
 
+.data .sidebar{
+    padding-top: 32px;
+    vertical-align: top;
+}
+
+.toggle-visibility{
+    border: 1px solid #ccc;
+    width: 150px;
+}
+
+.toggle-visibility .slot,
+.toggle-visibility .tour,
+.toggle-visibility .assignment{
+    text-indent: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.toggle-visibility .assignment{
+    margin-bottom: 0px;
+}
+
+.do-actions{
+    padding: 5px;
+    font-size: 14px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    width: 140px;
+    background: #eee;
+}
+
+.selected-days li{
+}
+
 .weekdays,
 .days,
 .month{
@@ -26,9 +60,14 @@
     width: 14.285714286%;
 }
 
+.day .header,
+.day .content{
+    border: 1px solid transparent;
+}
+
 .day .header{
     height: 17px;
-    background-color: #eee;
+    background: #eee;
     padding: 2px;
 }
 
@@ -41,9 +80,62 @@
     font-size: 10px;
 }
 
+.day .content{
+    height: 150px;
+}
+
+.day .content .event{
+}
+
+.toggle-visibility .slot,
+.toggle-visibility .tour,
+.toggle-visibility .assignment{
+    color: #888;
+}
+
+.toggle-visibility .slot.active,
+.toggle-visibility .tour.active,
+.toggle-visibility .assignment.active{
+    color: #333;
+}
+
+.day .content .slot, .toggle-visibility .slot.active{background: #e5b0e5;}
+.day .content .tour, .toggle-visibility .tour.active{background: #9ccccc;}
+.day .content .assignment, .toggle-visibility .assignment.active{background: #a0cca0;}
+
+.day .content .event:hover{font-weight: bold; color: #333}
+
+.day .content .slot:hover, .toggle-visibility .slot{background: #e5cde5;}
+.day .content .tour:hover, .toggle-visibility .tour{background: #b2cccc;}
+.day .content .assignment:hover, .toggle-visibility .assignment{background: #7fd280;}
+
 .event{
     padding: 2px;
     font-size: 12px;
     line-height: 1.4em;
     font-weight: normal;
+}
+
+.ui-state-active,
+.ui-state-hover{
+    border-color: #1C94C4;
+}
+
+.day .ui-state-hover{
+    color: #1C94C4;
+    border-color: #1C94C4;
+    border-style: dotted;
+}
+
+.day.ui-state-hover{
+    border-color: #a8bcc4;
+}
+
+.day.ui-state-hover .header{
+    background: #afd6e5;
+}
+
+.day.ui-state-active .header{
+    color: #fff;
+    background: #1C94C4;
 }
