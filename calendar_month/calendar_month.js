@@ -13,20 +13,21 @@ steal.plugins(
          * @param {Array} days An array of Ipark.Models.Day objects.
          */
         build_days: function( days ){
-            this.find('#event_container').html('//calendar/calendar_month/views/days.ejs', {
+            this.find('.days').html('//calendar/calendar_month/views/days.ejs', {
                 days:days
             });
-            this.find('#event_container').ipark_calendar_events();
+            this.find('.day').addClass('ui-state-default');
+            this.find('.days').ipark_calendar_events();
         },
 
         '.header click': function(element, event) {
             var parent = element.parent();
             var trigger_event = 'add';
-            if(parent.hasClass('selected')) {
+            if(parent.hasClass('ui-state-active')) {
                 trigger_event = 'remove';
             }
-            $('#selected_days').trigger(trigger_event, {'id': parent.attr('id'), 'rel': parent.attr('rel')});
-            parent.toggleClass('selected');
+            $('.selected-days').trigger(trigger_event, {'id': parent.attr('id'), 'rel': parent.attr('rel')});
+            parent.toggleClass('ui-state-active');
         }
     });
 });

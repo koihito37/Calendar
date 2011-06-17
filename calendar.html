@@ -4,41 +4,36 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>calendar</title>
+        <link href="jqueryui/css/custom-theme/jquery-ui-1.8.13.custom.css" rel="stylesheet" />
     </head>
     <body>
-        <div id="calendar">
-            <table id="calendar_topnavi">
+        <div class="calendar">
+            <table class="nav-actions">
                 <tr>
-                    <td id="sidebar_navi">
+                    <td class="nav-first">
 
                     </td>
-                    <td id="calendar_navi">
-                        <div id="main_navi">
-
-                        </div>
-                        <div id="sub_navi">
-
-                        </div>
+                    <td class="nav-second">
                     </td>
                 </tr>
             </table>
-            <table id="calendar_maintable">
+            <table class="data">
                 <tbody>
                     <tr>
-                        <td id="sidebar_cell">
-                            <div id="toggle_event_visibility">
+                        <td class="sidebar">
+                            <div class="toggle-visibility">
                                 <span class="toggle_event_visibility" id="toggle_slot">Slots</span><br />
                                 <span class="toggle_event_visibility" id="toggle_tour">Touren</span><br />
                                 <span class="toggle_event_visibility" id="toggle_assignment">Einsätze</span>
                             </div>
-                            <div id="day_actions">
+                            <div class="do-actions">
                                 Ausgewählte Tage:
-                                <ul id="selected_days"></ul>
+                                <ul class="selected-days"></ul>
                             </div>
                         </td>
-                        <td id="calendar_main_cell">
-                            <div id="calendar_container">
-                                <table id="weekdays">
+                        <td class="content">
+                            <div class="container">
+                                <table class="weekdays">
                                     <tbody>
                                         <tr>
                                             <th>Montag</th>
@@ -50,7 +45,7 @@
                                             <th>Sonntag</th>
                                         </tr>
                                 </table>
-                                <div id="event_container">
+                                <div class="days">
                                 </div>
                             </div>
                         </td>

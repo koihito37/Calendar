@@ -1,41 +1,49 @@
-body {
-	font-family: verdana;
-	padding: 0px; margin: 0px;
+.calendar .container{
+    width: 1000px;
 }
 
-#calendar_maintable {
-    border-width:1px;
-    border-style:solid;
-    border-color:blue;
-    text-align:justify;
+.weekdays,
+.days,
+.month{
+    width: 100%;
 }
 
-.event {
-    border-width:1px;
-    border-style:solid;
-    border-color:green;
-    text-align:justify;
-    padding: 1em;
+.weekdays th{
+    width: 14.285714286%;
+    background-color: #eee;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 0px;
 }
 
-th, td {
-    border-width:1px;
-    border-style:solid;
+.week{
+    height: 100px;
 }
 
-td {
-    height: 150px;
-    width: 150px;
+.day{
+    text-align: left;
+    vertical-align: top;
+    width: 14.285714286%;
 }
 
-span.active {
-    font-weight: bold;
+.day .header{
+    height: 17px;
+    background-color: #eee;
+    padding: 2px;
 }
 
-.day {
-    background-color: white;
+.day .header .misc{
+    float: left;
 }
 
-.day.selected {
-    background-color: yellow;
+.day .header .date{
+    float: right;
+    font-size: 10px;
+}
+
+.event{
+    padding: 2px;
+    font-size: 12px;
+    line-height: 1.4em;
+    font-weight: normal;
 }

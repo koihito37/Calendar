@@ -11,6 +11,6 @@ steal.css('calendar')
         'calendar/calendar_sidebar')
     .models('day', 'calendar_event')
     .then(function($) {
-        $("#calendar_container").ipark_calendar_month();
-        $("#sidebar_cell").ipark_calendar_sidebar();
+        $(".content").ipark_calendar_month();
+        $(".sidebar").ipark_calendar_sidebar();
     });

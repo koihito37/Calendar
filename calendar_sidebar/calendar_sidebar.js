@@ -32,11 +32,11 @@ $.Controller('Ipark.Calendar.Sidebar',{
         this.toggle_event_visibility(element);
     },
 
-    '#selected_days add': function(element, event, to_add) {
+    '.selected-days add': function(element, event, to_add) {
         element.append($('<li></li>').attr('id', 'selected_'+to_add.id).html(to_add.rel));
     },
 
-    '#selected_days remove': function(element, event, to_remove) {
+    '.selected-days remove': function(element, event, to_remove) {
         this.find('#selected_'+to_remove.id).remove();
     }
 })

@@ -28,20 +28,30 @@ $.Controller('Ipark.Calendar.Events',{
         });
     },
 
+    toggleEvent: function(element, event, show){
+        element.toggleClass('ui-helper-hidden');
+        //element.toggle(show);
+    },
+
     '.slot toggle': function(element, event, show) {
-        element.toggle(show);
+        this.toggleEvent(element, event, show);
     },
 
     '.tour toggle': function(element, event, show) {
-        element.toggle(show);
+        this.toggleEvent(element, event, show);
     },
 
     '.assignment toggle': function(element, event, show) {
-        element.toggle(show);
+        this.toggleEvent(element, event, show);
     },
 
+    '.event mouseover': function(element, event){
+        element.addClass('ui-state-hover');
+    },
 
-
+    '.event mouseout': function(element, event){
+        element.removeClass('ui-state-hover');
+    },
 
     /**
              * Listens for recipes being created.	 When a recipe is created, displays the new recipe.
@@ -62,32 +72,5 @@ $.Controller('Ipark.Calendar.Events',{
 
     ".event click" : function (element, event) {
         console.log(element);
-    },
-
-    ".event mouseover" : function( element, event ) {
-        element.css("backgroundColor","blue");
-        event.stopPropagation();
-    },
-
-    ".event mouseout" : function( element, event ) {
-        element.css("backgroundColor","");
-        event.stopPropagation();
-    },
-
-    ".delete_event mouseover" : function( element, event ) {
-        element.css("font-weight","bold");
-        event.stopPropagation();
-    },
-
-    ".delete_event mouseout" : function( element, event ) {
-        element.css("font-weight","normal");
-        event.stopPropagation();
-    },
-
-    ".delete_event click" : function (element, event) {
-        event.stopPropagation();
-        if(confirm("Soll das Event wirklich entfernt werden?")){
-            element.closest('.event').model().destroy();
-        }
     }
 })
