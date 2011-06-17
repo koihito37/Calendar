@@ -98,6 +98,10 @@
     width: 14.285714286%;
 }
 
+.week .today{
+    border-color: #FECE2F;
+}
+
 .day .header,
 .day .content{
     border: 1px solid transparent;
