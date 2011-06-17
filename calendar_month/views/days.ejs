@@ -4,7 +4,7 @@
         <tr class="week">
             <%for(var column_count = 1; column_count <= 7 ; column_count++){%>
                 <% var class = ''; if(days[day_index].compareTo(today) == 0) class = 'class="today"' %>
-                <td <%= class %> <%= days[day_index]%> rel="<%= days[day_index].getDate()%>">
+                <td <%= class %> <%= days[day_index]%> rel="<%= days[day_index].getDate()%>" data-date="<%= days[day_index].formatDate('dd.mm.yyyy') %>">
                     <div class="header">
                         <div class="misc">&nbsp;</div>
                         <div class="date">

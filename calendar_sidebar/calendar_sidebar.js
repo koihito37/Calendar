@@ -28,7 +28,7 @@ $.Controller('Ipark.Calendar.Sidebar',{
         if(element.hasClass('slot')){
             selector = 'slot';
         }
-        
+
         if(element.hasClass('tour')){
             selector = 'tour';
         }
@@ -40,15 +40,17 @@ $.Controller('Ipark.Calendar.Sidebar',{
         element.toggleClass('active');
     },
 
-    '.toggle_event_visibility click': function(element, event) {
+    '.toggle_event_visibility click': function(element, _event) {
         this.toggle_event_visibility(element);
     },
 
-    '.selected-days add': function(element, event, to_add) {
-        element.append($('<li></li>').attr('id', 'selected_'+to_add.id).html(to_add.rel));
+    '.selected-days add': function(element, _event, date) {
+        element.append($('<li></li>')
+        .attr('id', 'selected_'+date.formatDate('yyymmdd'))
+        .html(date.formatDate('dd.mm.yyyy')));
     },
 
-    '.selected-days remove': function(element, event, to_remove) {
-        this.find('#selected_'+to_remove.id).remove();
+    '.selected-days remove': function(_element, _event, date) {
+        this.find('#selected_'+date.formatDate('yyymmdd')).remove();
     }
 })

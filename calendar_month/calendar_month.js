@@ -59,7 +59,8 @@ steal.plugins(
             if(parent.hasClass('ui-state-active')) {
                 trigger_event = 'remove';
             }
-            $('.selected-days').trigger(trigger_event, {'id': parent.attr('id'), 'rel': parent.attr('rel')});
+            var date = $.calendars.instance().parseDate('dd.mm.yyyy', parent.data('date'));
+            $('.selected-days').trigger(trigger_event, date);
             parent.toggleClass('ui-state-active');
         }
     });
