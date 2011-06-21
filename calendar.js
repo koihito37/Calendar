@@ -13,10 +13,21 @@ steal.css('calendar')
         )
     .models('day', 'calendar_event')
     .then(function($) {
-        steal('//jquery.calendars/jquery.calendars.all.js')
+        steal('//jquery.calendars/jquery.calendars.all.js',
+              '//jquery.calendars/jquery.calendars-de.js',
+              '//jquery.calendars/jquery.calendars.picker-de.js',
+              '//qTip2/dist/jquery.qtip.js')
         .then(function($) {
-            $("td.content").ipark_calendar_month();
+            $.calendars.picker.setDefaults($.calendars.picker.regional['de']);
+            var baseDate = $.calendars.instance('gregorian', 'de').newDate();
+            $("td.content").ipark_calendar_month({
+                baseDate: baseDate
+            });
+
             $(".sidebar").ipark_calendar_sidebar();
-            $(".navigation").ipark_calendar_navi();
+
+            $(".navigation").ipark_calendar_navi({
+                today: baseDate
+            });
         })
     });

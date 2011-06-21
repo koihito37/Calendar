@@ -30,7 +30,6 @@ $.Controller('Ipark.Calendar.Events',{
 
     toggleEvent: function(element, event, show){
         element.toggleClass('ui-helper-hidden');
-        //element.toggle(show);
     },
 
     '.slot toggle': function(element, event, show) {
@@ -73,6 +72,23 @@ $.Controller('Ipark.Calendar.Events',{
     },
 
     ".event click" : function (element, event) {
-        console.log(element);
+        element.qtip({
+            content: {
+                text: 'I really like owls!',
+                title: {
+                    text: 'About me',
+                    button: 'Close'
+                }
+            },
+
+            show: {
+                ready: true,
+                event: 'click'
+            },
+            hide: {
+                fixed: true,
+                event: false
+            }
+        });
     }
 })

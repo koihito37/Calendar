@@ -5,15 +5,16 @@ steal.plugins(
     $.Controller('Ipark.Calendar.Month',
     {
         defaults :  {
-            add_month :  0
+            add_month :  0,
+            baseDate :  0
         }
     },
     {
         // sets up the widget
         init : function(){
-            var baseDate = $.calendars.instance().newDate();
-            baseDate.add(this.options.add_month, 'm');
-            Ipark.Models.Day.findAll({baseDate: baseDate}, this.callback('build_days'));
+            //var baseDate = $.calendars.instance().newDate();
+            //baseDate.add(this.options.add_month, 'm');
+            Ipark.Models.Day.findAll({baseDate: this.options.baseDate}, this.callback('build_days'));
         },
 
         /**

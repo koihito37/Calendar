@@ -1,26 +1,46 @@
-$.Controller('Ipark.Calendar.Navi',{
-    '.today click': function(element, event) {
-        this.changeMonth(element, 0);
+$.Controller('Ipark.Calendar.Navi',
+    {
+        defaults :  {
+            today :  0,
+            date: 0
+        },
+        listensTo : ['changeDate']
     },
+    {
+        init: function() {
 
-    '.last_month click': function(element, event) {
-        this.changeMonth(element, -1);
-    },
+            this.options.date = this.options.today.newDate();
+        },
 
-    '.next_month click': function(element, event) {
-        this.changeMonth(element, 1);
-    },
+        'changeDate': function (element, event, date) {
+            this.options.date = date;
+            this.changeMonth(element);
+        },
 
-    changeMonth: function(element, add_month) {
-        var content_td = element.parents(".calendar").find('td.content');
-        var days_div = element.parents(".calendar").find('div.days');
+        '.today click': function(element, event) {
+            this.options.date = this.options.today.newDate();
+            this.changeMonth(element);
+        },
 
-        if(add_month != 0) {
-            add_month += content_td.controller().options.add_month;
+        '.last_month click': function(element, event) {
+            this.options.date.add(-1, 'm');
+            this.changeMonth(element);
+        },
+
+        '.next_month click': function(element, event) {
+            this.options.date.add(1, 'm');
+            this.changeMonth(element);
+        },
+
+        changeMonth: function(element) {
+            var content_td = element.parents(".calendar").find('td.content');
+            var days_div = element.parents(".calendar").find('div.days');
+
+            content_td.ipark_calendar_month('destroy');
+            days_div.ipark_calendar_events('destroy');
+            content_td.ipark_calendar_month({
+                baseDate: this.options.date
+            });
+            $(".sidebar").ipark_calendar_sidebar().trigger('changeDate', this.options.date);
         }
-
-        content_td.ipark_calendar_month('destroy');
-        days_div.ipark_calendar_events('destroy');
-        content_td.ipark_calendar_month({'add_month': add_month});
-    }
-})
+    })
